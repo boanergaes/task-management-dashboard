@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Agdasima:wght@400;700&family=Alata&family=Alfa+Slab+One&family=Anton&family=Average&family=Catamaran:wght@100..900&family=Geist:wght@100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Jaro:opsz@6..72&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Share+Tech+Mono&family=VT323&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg-color: white;
+    --secondary-bg-color: hsl(240, 26%, 97%);
+    --thin-border-color: #e5e7eb;
+    --dim-font-color: #6B7280;
+    --dim-font-color-2nd: #9ca3af;
+
+    --main-font-family: "Geist", sans-serif;
+}
+
+body {
+    background-color: var(--secondary-bg-color);
+    font-family: var(--main-font-family);
+}
+
+header {
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--thin-border-color);
+}
+
+.header-content, .main-container, .footer-content {
+    max-width: 1200px;
+    flex: 1;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    & * {
+        display: flex;
+        align-items: center;
+    }
+
+    & h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.header-tools {
+    display: flex;
+    gap: .5rem;
+}
+
+.icon-btn {
+    /* inherited display: flex from .header-content */
+    justify-content: center;
+    background-color: transparent;
+    color: var(--dim-font-color);
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: .375rem;
+    cursor: pointer;
+    transition: background-color .2s;
+
+    &:hover {
+        background-color: hsl(220, 13%, 91%);
+    }
+
+    & svg {
+        width: 1rem;
+        height: auto;
+    }
+}
+
+section.main-section {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    padding: 2rem 1rem;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    background-color: var(--main-bg-color);
+    border: 1px solid #e5e7eb;
+    border-left: .3rem solid;
+    border-radius: .5rem;
+    padding: 1rem;
+
+    & h2 {
+        font-size: .875rem;
+        font-weight: 500;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: var(--dim-font-color);
+    }
+
+    & h1 {
+        font-size: 2rem;
+    }
+
+    & p {
+        font-size: .75rem;
+        color: var(--dim-font-color-2nd);
+        margin: 0;
+    }
+}
