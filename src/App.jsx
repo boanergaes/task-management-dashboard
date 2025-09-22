@@ -1,12 +1,8 @@
 import './App.css'
 
 import johnDoeImg from './assets/john-doe.png'
-import alexRiveraImg from './assets/alex-rivera.jpg'
-import emmaDevisImg from './assets/emma-devis.png'
-import mikeJohnsonImg from './assets/mike-johnson.png'
-import sarahChenImg from './assets/sarah-chen.png'
 
-import { stats } from './storage'
+import { stats, teamMembers, notifications, recentActivity } from './storage'
 
 function Button({className, content, btn_title}) {
     return (
@@ -71,6 +67,81 @@ function Manager() {
     )
 }
 
+function Teams() {
+    const teams = teamMembers.map(({team_name, role, avatar}) => {
+        return (
+            <div className='member-container'>
+                <img className='team-avatar' src={avatar} alt={'Picture of ' + team_name} />
+                <div className='team-info'>
+                    <h3>{team_name}</h3>
+                    <p>{role}</p>
+                </div>
+            </div>
+        )
+    })
+
+    return (
+        <div className='team-container'>
+            <h2 className='aside-h2'>Team Members</h2>
+
+            <div className='inner-team-container'>
+                {teams}
+            </div>
+        </div>
+    )
+}
+
+function Notifications() {
+    const notification_list = notifications.map(({noti_title, content, time}) => {
+        return (
+            <div className='notification-card'>
+                <div className='notification-icon'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-bell icon"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+                </div>
+
+                <div className='notification-content'>
+                    <h3 className='notification-title'>{noti_title}</h3>
+                    <p className='notification-content'>{content}</p>
+                    <p className='time'>{time + ' ago'}</p>
+                </div>
+            </div>
+        )
+    })
+
+    return (
+        <div className='notifications'>
+            <h2 className='aside-h2'>Notifications</h2>
+
+            <div className='notifications-container'>
+                {notification_list}
+            </div>
+        </div>
+    )
+}
+
+function RecentActivity() {
+    const recent_activity_list = recentActivity.map(({person, deed, thing, time}) => {
+        return (
+            <div className='activity-card'>
+                <p className='activity'>
+                    <span className='person-name'>{person}</span> {deed} <span className='thing-name'>{thing}</span>
+                </p>
+                <p className='time'>{time + ' ago'}</p>
+            </div>
+        )
+    })
+
+    return (
+        <div className='activity-container'>
+            <h2 className='aside-h2'>Recent Activity</h2>
+
+            <div className='activity-list'>
+                {recent_activity_list}
+            </div>
+        </div>
+    )
+}
+
 function MainSection() {
     return (
         <section className='main-section'>
@@ -80,8 +151,10 @@ function MainSection() {
                 </main>
 
                 <aside>
-                    {/* <img src={johnDoeImg} alt="" />  */}
                     <Manager />
+                    <Teams />
+                    <Notifications />
+                    <RecentActivity />
                 </aside>
             </div>
         </section>

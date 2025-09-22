@@ -10,8 +10,10 @@
     --main-bg-color: white;
     --secondary-bg-color: hsl(240, 26%, 97%);
     --thin-border-color: #e5e7eb;
+    --thin-border-color-2nd: hsl(220, 13%, 93%);
     --dim-font-color: #6B7280;
     --dim-font-color-2nd: #9ca3af;
+    --notification-icon-bg-color: #dbeafe;
 
     --main-font-family: "Geist", sans-serif;
 }
@@ -77,6 +79,16 @@ header {
 
 /* ======== ASIDE ===== */
 
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+aside img {
+    object-fit: cover;
+}
+
 .manager {
     background-color: var(--main-bg-color);
     border: 1px solid var(--thin-border-color);
@@ -97,16 +109,135 @@ header {
 }
 
 .manager-name {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
 }
 
 .manager-avatar {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+}
 
-    /* FIX THE IMAGES ASPECT RATIO ----------------- */
-    /* aspect-ratio: auto; */
+/* ----- members ----- */
+
+.aside-h2 {
+    font-size: 1.125rem;
+    margin-bottom: .75rem;
+}
+
+.member-container {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    background-color: var(--main-bg-color);
+    border-radius: .5rem;
+    padding: .75rem;
+    border: 1px solid var(--thin-border-color);
+    margin-bottom: .75rem;
+}
+
+.team-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.team-info, .notification-content {
+    & h3 {
+        font-size: .875rem;
+        font-weight: 500;
+        margin-bottom: .05rem;
+    }
+
+    & p {
+        font-size: .75rem;
+        color: var(--dim-font-color);
+    }
+}
+
+/* ----- notifications ------- */
+
+.notification-card {
+    display: flex;
+    gap: .75rem;
+    background-color: var(--main-bg-color);
+    padding: .75rem;
+    margin-bottom: .75rem;
+    border-radius: .5rem;
+    border: 1px solid var(--thin-border-color);
+}
+
+.notification-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--notification-icon-bg-color);
+    color: hsl(214, 95%, 60%);
+
+    & svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.time {
+    font-size: .75rem;
+    color: var(--dim-font-color-2nd);
+}
+
+/* ------ recent activity --------- */
+
+.activity-container {
+    background-color: var(--main-bg-color);
+    padding: 1rem;
+    border: 1px solid var(--thin-border-color);
+    border-radius: .5rem;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding: .5rem 0;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--thin-border-color-2nd);
+    }
+}
+
+.activity {
+    font-size: .875rem;
+    line-height: 1.225rem;
+}
+
+.person-name {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.thing-name {
+    color: #3b82f6;
+    font-weight: 500;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 /* ===== MAIN ======== */
@@ -158,4 +289,5 @@ section.main-section {
         margin: 0;
     }
 }
+
 
