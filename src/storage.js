@@ -116,3 +116,30 @@ export const projects = [
         date: '1/30/2024'
     }
 ]
+
+export const tasks = [
+    {
+        task_title: 'Design Homepage',
+        description: 'Create wireframes and mockups for the new homepage layout',
+        person: 'Sarah Chen',
+        date: '1/15/2024'
+    },
+    {
+        task_title: 'Setup Database',
+        description: 'Configure PostgreSQL database and create initial schemas',
+        person: 'Mike Johnson',
+        date: '1/20/2024'
+    },
+    {
+        task_title: 'Write Documentation',
+        description: 'Document API endpoints and component usage',
+        person: 'Alex Rivera',
+        date: '1/10/2024'
+    },
+    {
+        task_title: 'Implement Authentication',
+        description: 'Add user login and registration functionality',
+        person: 'Emma Davis',
+        date: '1/25/2024'
+    }
+]

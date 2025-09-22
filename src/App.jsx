@@ -2,7 +2,7 @@ import './App.css'
 
 import johnDoeImg from './assets/john-doe.png'
 
-import { stats, teamMembers, notifications, recentActivity } from './storage'
+import { stats, teamMembers, notifications, recentActivity, projects, tasks } from './storage'
 
 function Button({className, content, btn_title}) {
     return (
@@ -25,30 +25,6 @@ function Header() {
                 </div>
             </div>
         </header>
-    )
-}
-
-function StatCard({key, task_title, quan, task_status, task_color}) {
-    return (
-        <div key={key} className='stat-card' style={{borderLeftColor: task_color}}>
-            <h2>{task_title.toUpperCase()}</h2>
-            <h1>{quan}</h1>
-            <p>{task_status}</p>
-        </div>
-    )
-}
-
-function Stats() {
-    const statsList = stats.map(({id, task_title, quan, task_status, task_color}) => {
-        return (
-            <StatCard key={id} task_title={task_title} quan={quan} task_status={task_status} task_color={task_color} />
-        )
-    })
-
-    return (
-        <div className='card-container'>
-            { statsList }
-        </div>
     )
 }
 
@@ -82,7 +58,7 @@ function Teams() {
 
     return (
         <div className='team-container'>
-            <h2 className='aside-h2'>Team Members</h2>
+            <h2 className='h2'>Team Members</h2>
 
             <div className='inner-team-container'>
                 {teams}
@@ -110,7 +86,7 @@ function Notifications() {
 
     return (
         <div className='notifications'>
-            <h2 className='aside-h2'>Notifications</h2>
+            <h2 className='h2'>Notifications</h2>
 
             <div className='notifications-container'>
                 {notification_list}
@@ -133,10 +109,106 @@ function RecentActivity() {
 
     return (
         <div className='activity-container'>
-            <h2 className='aside-h2'>Recent Activity</h2>
+            <h2 className='h2'>Recent Activity</h2>
 
             <div className='activity-list'>
                 {recent_activity_list}
+            </div>
+        </div>
+    )
+}
+
+function StatCard({key, task_title, quan, task_status, task_color}) {
+    return (
+        <div key={key} className='stat-card' style={{borderLeftColor: task_color}}>
+            <h2>{task_title.toUpperCase()}</h2>
+            <h1>{quan}</h1>
+            <p>{task_status}</p>
+        </div>
+    )
+}
+
+function Stats() {
+    const statsList = stats.map(({id, task_title, quan, task_status, task_color}) => {
+        return (
+            <StatCard key={id} task_title={task_title} quan={quan} task_status={task_status} task_color={task_color} />
+        )
+    })
+
+    return (
+        <div className='card-container'>
+            { statsList }
+        </div>
+    )
+}
+
+function Projects() {
+    const projects_list = projects.map(({proj_title, description, members, date}) => {
+        return (
+            <div className='project-card'>
+
+                <h2 className='h2'>{proj_title}</h2>
+
+                <p className='medium-text'>{description}</p>
+
+                <div className="meta-container">
+                    <div className='meta members'>
+                        <div className='meta-icon'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-users meta-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <span>{members} members</span>
+                    </div>
+                    <div className="meta date">
+                        <div className="meta-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-calendar meta-icon"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                        </div>
+                        <span>{date}</span>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
+    return (
+        <div className="project-container">
+            {projects_list}
+        </div>
+    )
+}
+
+function Tasks() {
+    const tasks_list = tasks.map(({task_title, description, person, date}) => {
+        return (
+            <div className="task-card">
+                <h2 className='h2'>{task_title}</h2>
+                <p className='medium-text'>{description}</p>
+                <div className="meta-container">
+
+                    <div className="meta person">
+                        <div className="meta-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-user meta-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <span>{person}</span>
+                    </div>
+
+                    <div className="meta date">
+                        <div className="meta-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-calendar meta-icon"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                        </div>
+                        <span>{date}</span>
+                    </div>
+
+                </div>
+            </div>
+        )
+    })
+
+    return (
+        <div className="tasks-container">
+            <h1 className='tasks-header'>Recent Tasks</h1>
+
+            <div className="tasks-list">
+                {tasks_list}
             </div>
         </div>
     )
@@ -148,6 +220,8 @@ function MainSection() {
             <div className='main-container'>
                 <main>
                     <Stats />
+                    <Projects />
+                    <Tasks />
                 </main>
 
                 <aside>
@@ -161,6 +235,49 @@ function MainSection() {
     )
 }
 
+function ALi({text, href}) {
+    return (
+        <a href={href}>
+            <li>{text}</li>
+        </a>
+    )
+}
+
+function Footer() {
+    return (
+        <footer>
+            <div className="footer-container">
+                <div className="upper">
+                    <ul className="company-sec">
+                        <h2 className="h2">Company</h2>
+                        <ALi text='About Us' href='#' />
+                        <ALi text='Careers' href='#' />
+                        <ALi text='Contact' href='#' />
+                    </ul>
+
+                    <ul className="product-sec">
+                        <h2 className="h2">Products</h2>
+                        <ALi text='Features' href='#' />
+                        <ALi text='Pricing' href='#' />
+                        <ALi text='Support' href='#' />
+                    </ul>
+
+                    <ul className="resources">
+                        <h2 className="h2">Resources</h2>
+                        <ALi text='Documentation' href='#' />
+                        <ALi text='Blog' href='#' />
+                        <ALi text='community' href='#' />
+                    </ul>
+                </div>
+
+                <div className="lower">
+                    © 2024 Task Management Dashboard. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    )
+}
+
 
 export default function App() {
     return (
@@ -169,7 +286,7 @@ export default function App() {
 
             <MainSection />
 
-
+            <Footer />
         </>
     )
 }
