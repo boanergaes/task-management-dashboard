@@ -1,4 +1,11 @@
 import './App.css'
+
+import johnDoeImg from './assets/john-doe.png'
+import alexRiveraImg from './assets/alex-rivera.jpg'
+import emmaDevisImg from './assets/emma-devis.png'
+import mikeJohnsonImg from './assets/mike-johnson.png'
+import sarahChenImg from './assets/sarah-chen.png'
+
 import { stats } from './storage'
 
 function Button({className, content, btn_title}) {
@@ -49,6 +56,21 @@ function Stats() {
     )
 }
 
+function Manager() {
+    return (
+        <div className='manager'>
+            <div className='manager-info'>
+                <img className='manager-avatar' src={johnDoeImg} alt="John Doe" />
+                <div>
+                    <h1 className='manager-name'>John Doe</h1>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+            <p className='email'>john@example.com</p>
+        </div>
+    )
+}
+
 function MainSection() {
     return (
         <section className='main-section'>
@@ -58,6 +80,8 @@ function MainSection() {
                 </main>
 
                 <aside>
+                    {/* <img src={johnDoeImg} alt="" />  */}
+                    <Manager />
                 </aside>
             </div>
         </section>

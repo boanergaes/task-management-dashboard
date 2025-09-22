@@ -75,12 +75,51 @@ header {
     }
 }
 
+/* ======== ASIDE ===== */
+
+.manager {
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--thin-border-color);
+    border-radius: .5rem;
+    padding: 1rem;
+
+    & p {
+        font-size: .875rem;
+        color: var(--dim-font-color);
+    }
+}
+
+.manager-info {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .5rem;
+}
+
+.manager-name {
+    font-size: 1.5rem;
+}
+
+.manager-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    /* FIX THE IMAGES ASPECT RATIO ----------------- */
+    /* aspect-ratio: auto; */
+}
+
+/* ===== MAIN ======== */
+
 section.main-section {
     display: flex;
     justify-content: center;
 }
 
 .main-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
     padding: 2rem 1rem;
 }
 
@@ -119,3 +158,4 @@ section.main-section {
         margin: 0;
     }
 }
+
