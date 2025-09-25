@@ -1,0 +1,46 @@
+.notification-content {
+    & h3 {
+        font-size: .875rem;
+        font-weight: 500;
+        margin-bottom: .05rem;
+    }
+
+    & p {
+        font-size: .75rem;
+        color: var(--dim-font-color);
+    }
+}
+
+.notification-card {
+    display: flex;
+    gap: .75rem;
+    background-color: var(--main-bg-color);
+    padding: .75rem;
+    margin-bottom: .75rem;
+    border-radius: .5rem;
+    border: 1px solid var(--thin-border-color);
+}
+
+.notification-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--notification-icon-bg-color);
+    color: hsl(214, 95%, 60%);
+
+    & svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+

@@ -1,0 +1,29 @@
+.member-container {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    background-color: var(--main-bg-color);
+    border-radius: .5rem;
+    padding: .75rem;
+    border: 1px solid var(--thin-border-color);
+    margin-bottom: .75rem;
+}
+
+.team-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.team-info {
+    & h3 {
+        font-size: .875rem;
+        font-weight: 500;
+        margin-bottom: .05rem;
+    }
+
+    & p {
+        font-size: .75rem;
+        color: var(--dim-font-color);
+    }
+}

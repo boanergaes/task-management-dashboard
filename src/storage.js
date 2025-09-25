@@ -34,6 +34,12 @@ export const stats = [
     },
 ]
 
+export const manager = {
+    manager_name: 'John Doe',
+    title: 'Project Manager',
+    email: 'john@example.com'
+}
+
 export const teamMembers = [
     {
         team_name: 'Sarah Chen',

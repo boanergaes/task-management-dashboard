@@ -14,7 +14,6 @@
     --dim-font-color: #6B7280;
     --dim-font-color-2nd: #9ca3af;
     --notification-icon-bg-color: #dbeafe;
-
     --main-font-family: "Geist", sans-serif;
 }
 
@@ -23,62 +22,7 @@ body {
     font-family: var(--main-font-family);
 }
 
-header {
-    background-color: var(--main-bg-color);
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid var(--thin-border-color);
-}
-
-.header-content, .main-container, .footer-container {
-    max-width: 1200px;
-    flex: 1;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-
-    & * {
-        display: flex;
-        align-items: center;
-    }
-
-    & h1 {
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-}
-
-.header-tools {
-    display: flex;
-    gap: .5rem;
-}
-
-.icon-btn {
-    /* inherited display: flex from .header-content */
-    justify-content: center;
-    background-color: transparent;
-    color: var(--dim-font-color);
-    width: 2.5rem;
-    height: 2.5rem;
-    border: none;
-    border-radius: .375rem;
-    cursor: pointer;
-    transition: background-color .2s;
-
-    &:hover {
-        background-color: hsl(220, 13%, 91%);
-    }
-
-    & svg {
-        width: 1rem;
-        height: auto;
-    }
-}
-
-/* ======== ASIDE ===== */
+/* ======= aside ======== */
 
 aside {
     display: flex;
@@ -90,36 +34,9 @@ aside img {
     object-fit: cover;
 }
 
-.manager {
-    background-color: var(--main-bg-color);
-    border: 1px solid var(--thin-border-color);
-    border-radius: .5rem;
-    padding: 1rem;
+/* ===== MAIN ======== */
 
-    & p {
-        font-size: .875rem;
-        color: var(--dim-font-color);
-    }
-}
-
-.manager-info {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    margin-bottom: .5rem;
-}
-
-.manager-name {
-    font-size: 1.125rem;
-}
-
-.manager-avatar {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-}
-
-/* ----- members ----- */
+/* ----- common styles for multiple unrelated components ----- */
 
 .h2 {
     font-size: 1.125rem;
@@ -127,203 +44,9 @@ aside img {
     font-weight: 500;
 }
 
-.member-container {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    background-color: var(--main-bg-color);
-    border-radius: .5rem;
-    padding: .75rem;
-    border: 1px solid var(--thin-border-color);
-    margin-bottom: .75rem;
-}
-
-.team-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.team-info, .notification-content {
-    & h3 {
-        font-size: .875rem;
-        font-weight: 500;
-        margin-bottom: .05rem;
-    }
-
-    & p {
-        font-size: .75rem;
-        color: var(--dim-font-color);
-    }
-}
-
-/* ----- notifications ------- */
-
-.notification-card {
-    display: flex;
-    gap: .75rem;
-    background-color: var(--main-bg-color);
-    padding: .75rem;
-    margin-bottom: .75rem;
-    border-radius: .5rem;
-    border: 1px solid var(--thin-border-color);
-}
-
-.notification-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-color: var(--notification-icon-bg-color);
-    color: hsl(214, 95%, 60%);
-
-    & svg {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-.notification-content {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
 .time {
     font-size: .75rem;
     color: var(--dim-font-color-2nd);
-}
-
-/* ------ recent activity --------- */
-
-.activity-container {
-    background-color: var(--main-bg-color);
-    padding: 1rem;
-    border: 1px solid var(--thin-border-color);
-    border-radius: .5rem;
-}
-
-.activity-list {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
-}
-
-.activity-card {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-    padding: .5rem 0;
-
-    &:not(:last-child) {
-        border-bottom: 1px solid var(--thin-border-color-2nd);
-    }
-}
-
-.activity {
-    font-size: .875rem;
-    line-height: 1.225rem;
-}
-
-.person-name {
-    color: #1f2937;
-    font-weight: 600;
-}
-
-.thing-name {
-    color: #3b82f6;
-    font-weight: 500;
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-/* ===== MAIN ======== */
-
-section.main-section {
-    display: flex;
-    justify-content: center;
-}
-
-.main-container {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 1.5rem;
-    padding: 2rem 1rem;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-}
-
-.stat-card {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-    background-color: var(--main-bg-color);
-    border: 1px solid #e5e7eb;
-    border-left: .3rem solid;
-    border-radius: .5rem;
-    padding: 1rem;
-
-    & h2 {
-        font-size: .875rem;
-        font-weight: 500;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        color: var(--dim-font-color);
-    }
-
-    & h1 {
-        font-size: 2rem;
-    }
-
-    & p {
-        font-size: .75rem;
-        color: var(--dim-font-color-2nd);
-        margin: 0;
-    }
-}
-
-/* ------ projects ----- */
-
-.project-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: var(--main-bg-color);
-    border: 1px solid var(--thin-border-color);
-    border-radius: .5rem;
-    padding: 1rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
-    transition: box-shadow .2s;
-
-    &:hover {
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
-    }
-
-    & h2 {
-        margin-bottom: -.06rem;
-    }
 }
 
 .medium-text {
@@ -349,111 +72,22 @@ main {
     height: 1rem;
 }
 
-/* ----- recent tasks ------ */
+/* ----------------------- */
 
-.tasks-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-top: .5rem;
-}
-
-.tasks-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.tasks-header {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.task-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: var(--main-bg-color);
-    padding: 1rem;
-    border: 1px solid var(--thin-border-color);
-    border-radius: .5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
-    transition: box-shadow .2s;
-
-    & h2 {
-        margin-bottom: -.2rem;
-    }
-
-    &:hover {
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
-    }
-}
-
-/* ========== FOOTER ========== */
-
-footer {
+section.main-section {
     display: flex;
     justify-content: center;
-    background-color: #1f2937;
-    color: #fff;
-    margin-top: 2rem;
-
-    & a {
-        text-decoration: none;
-        color: #d1d5db;
-
-        &:hover {
-            color: white;
-        }
-    }
 }
 
-.footer-container {
-    padding: 2rem 1rem 1rem;
-}
-
-.upper {
+.main-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding-top: .8rem;
-    padding-bottom: 1.8rem;
-    border-bottom: 1px solid hsla(0, 0%, 50%, .5);
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
 }
 
-.upper ul {
-    list-style-type: none;
+main {
     display: flex;
     flex-direction: column;
-    gap: .8rem;
-}
-
-.lower {
-    text-align: center;
-    padding: 1.4rem;
-    padding-bottom: .6rem;
-    font-size: .9rem;
-    color: var(--dim-font-color-2nd);
-}
-
-@media screen and (width < 1040px) {
-    .main-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (width < 801px) {
-    .card-container, .project-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (width < 500px) {
-    .upper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .upper .h2 {
-        padding: 0;
-    }
+    gap: 1.5rem;
 }
